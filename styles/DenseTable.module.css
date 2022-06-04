@@ -1,0 +1,10 @@
+.row:last-child {
+  padding-bottom: 5px;
+}
+
+.THeader th{
+  color: var(--text-primary-color);
+  background-color: var(--primary-color);
+  text-align: left;
+  font-weight: bold;
+}
