@@ -1,8 +1,4 @@
-.row:last-child {
-  padding-bottom: 5px;
-}
-
-.THeader th{
+.THeader th {
   color: var(--text-primary-color);
   background-color: var(--primary-color);
   text-align: left;

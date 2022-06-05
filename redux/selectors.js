@@ -2,9 +2,9 @@ import {
   createSelector
 } from 'reselect'
 // Chrome Extension: Reselect DevTools
-// import {
-//   registerSelectors
-// } from 'reselect-tools';
+import {
+  registerSelectors
+} from 'reselect-tools';
 
 const getIdentityUsers_f = (state) => {
   if (state && state.user.users) {
@@ -18,6 +18,6 @@ const getIdentityUsers_f = (state) => {
 export const getIdentityUsers = createSelector((state) => state,getIdentityUsers_f);
 
 // // Chrome Extension: Reselect DevTools
-// registerSelectors({
-//   getIdentityUsers
-// });
+registerSelectors({
+  getIdentityUsers
+});

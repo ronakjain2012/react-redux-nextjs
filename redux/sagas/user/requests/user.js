@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import {getRequest} from "../../../../services/axiosClient";
 export function requestGetUser() {
   return axios.request({
     method: "get",
@@ -8,8 +8,5 @@ export function requestGetUser() {
 }
 
 export function requestGetIdentityUsers() {
-  return axios.request({
-    method: "get",
-    url: "http://localhost:8080/api/users"
-  });
+  return getRequest('users');
 }
