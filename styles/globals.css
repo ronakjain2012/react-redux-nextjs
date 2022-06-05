@@ -4,12 +4,11 @@
   --accent-color: #db4c40;
 
   --text-primary-color: #fefcfb;
-  --text-secondary-color: #3ABEFF;
+  --text-secondary-color: #3abeff;
 
-  --background-color: #C2DED1;
+  --background-color: #c2ded1;
   --radius: 10px;
 }
-
 
 html,
 body {
@@ -53,7 +52,7 @@ table tr:last-child th:first-child {
 
 table tr:last-child th:last-child {
   border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px; 
+  border-bottom-right-radius: 10px;
 }
 
 pre {

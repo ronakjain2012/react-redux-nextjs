@@ -22,11 +22,11 @@ function Home({ items }) {
     <div className={styles.container}>
       <Head>
         <title>Dashboard</title>
-        <meta name="description" content="Dashboard" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content='Dashboard' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
-        <Container maxWidth="100%" className={styles.container}>
+        <Container maxWidth='100%' className={styles.container}>
           {user && <h1>{user.firstName}, APIs and Store Working</h1>}
           <Paper style={{ marginTop: '2px', borderRadius: '10px' }}>
             <InputMain />
@@ -34,7 +34,7 @@ function Home({ items }) {
           <Divider />
           <Grid container>
             <Grid item md={12} xs={12} className={styles.tables}>
-              <CardTable name="Users" data={items}></CardTable>
+              <CardTable name='Users' data={items}></CardTable>
             </Grid>
             <Grid item md={6} xs={12} className={styles.tables}>
               {/* <CardTable></CardTable> */}

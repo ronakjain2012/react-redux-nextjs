@@ -1,9 +1,9 @@
-import axios from "axios";
-import {getRequest} from "../../../../services/axiosClient";
+import axios from 'axios';
+import { getRequest } from '../../../../services/axiosClient';
 export function requestGetUser() {
   return axios.request({
-    method: "get",
-    url: "https://my-json-server.typicode.com/atothey/demo/user"
+    method: 'get',
+    url: 'https://my-json-server.typicode.com/atothey/demo/user',
   });
 }
 

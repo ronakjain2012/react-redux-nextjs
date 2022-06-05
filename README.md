@@ -1,1 +1,1 @@
-React Next JS application with redux saga 
+React Next JS application with redux saga
