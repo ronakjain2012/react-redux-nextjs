@@ -58,3 +58,22 @@ table tr:last-child th:last-child {
 pre {
   margin: 0px;
 }
+
+.container {
+  margin-top: 5px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.padding10 {
+  padding: 10px;
+}
+
+.MuiLoadingButton-loadingIndicator {
+  color: inherit !important;
+}

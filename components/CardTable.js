@@ -2,8 +2,10 @@ import { CardContent, CardHeader, Paper } from '@mui/material';
 import DenseTable from './DenseTable';
 import styles from '../styles/CardTable.module.css';
 import LoadingButton from '@mui/lab/LoadingButton';
-
-export default function CardTable(props) {
+import { getLoadingByAction } from '../redux/selectors';
+import { connect } from 'react-redux';
+import CheckIcon from '@mui/icons-material/Check';
+function CardTable(props) {
   const items = props.data;
   const cols =
     items !== undefined && items[0] !== undefined ? Object.keys(items[0]) : [];
@@ -21,7 +23,14 @@ export default function CardTable(props) {
       <CardHeader
         title={props.name}
         className={styles.tableHeading}
-        action={<LoadingButton loading>Submit</LoadingButton>}
+        action={
+          <LoadingButton
+            loading={props.loading}
+            style={{ color: 'var(--primary-color)' }}>
+            {' '}
+            <CheckIcon></CheckIcon>{' '}
+          </LoadingButton>
+        }
       />
       <CardContent className={`${styles.noPadding} ${styles.cardContent}`}>
         {RenderTable()}
@@ -29,3 +38,11 @@ export default function CardTable(props) {
     </Paper>
   );
 }
+
+const mapStateToProps = (state, props) => {
+  return {
+    loading: getLoadingByAction(state, props.for),
+  };
+};
+
+export default connect(mapStateToProps)(CardTable);

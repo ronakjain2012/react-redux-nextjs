@@ -7,12 +7,16 @@ import Head from 'next/head';
 import CardTable from '../components/CardTable';
 import InputMain from '../components/InputMain';
 import styles from '../styles/Home.module.css';
-import { getIdentityUser, getUser } from '../redux/reducers/user/user';
+import {
+  getIdentityUser,
+  getUser,
+  GET_IDENTITY_USERS,
+} from '../redux/reducers/user/user';
 import { getIdentityUsers } from '../redux/selectors';
+import ApiLayout from '../layouts/ApiLayout';
 
 function Home({ items }) {
   const user = useSelector(state => state.user.user);
-  const api = useSelector(state => state.api);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUser());
@@ -34,14 +38,14 @@ function Home({ items }) {
           <Divider />
           <Grid container>
             <Grid item md={12} xs={12} className={styles.tables}>
-              <CardTable name='Users' data={items}></CardTable>
-            </Grid>
-            <Grid item md={6} xs={12} className={styles.tables}>
-              {/* <CardTable></CardTable> */}
+              <CardTable
+                name='Users'
+                data={items}
+                for={GET_IDENTITY_USERS}></CardTable>
             </Grid>
           </Grid>
-          <Grid>{JSON.stringify(api)}</Grid>
         </Container>
+        <ApiLayout></ApiLayout>
       </main>
     </div>
   );

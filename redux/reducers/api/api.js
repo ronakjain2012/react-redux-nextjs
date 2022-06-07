@@ -1,3 +1,4 @@
+import { removeByAttr, getByAttr } from '../../../services/helper';
 // Actions Types
 export const GET_LOADING_STATUS = 'GET_LOADING_STATUS';
 export const ACTION_LOADING_STATUS = 'ACTION_LOADING_STATUS';
@@ -20,6 +21,18 @@ export const setAction = action => ({
   actions: action,
 });
 
+export const setSuccessAction = payload => ({
+  type: SET_SUCCESS_ACTION,
+  actions: payload.action,
+  apiResponse: payload.data,
+});
+
+export const setFailureAction = payload => ({
+  type: SET_FAIL_ACTION,
+  actions: payload.action,
+  apiResponse: payload.data,
+});
+
 const initialState = {
   loading: 0,
   actions: [],
@@ -31,24 +44,43 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_ACTION:
-      console.log(action, 'action');
       var count = state.loading;
       count++;
       const actions = state.actions;
       actions.push({ ...action.actions, id: +new Date() });
-      return { ...state, loading: count, action: actions };
+      return { ...state, loading: count, actions: actions };
     case SET_SUCCESS_ACTION:
       var count = state.loading;
       count--;
       const successLogs = state.successLogs;
-      successLogs.push({ ...action.actions, idS: +new Date() });
-      return { ...state, loading: count, successLogs };
+      var mainActionList = state.actions;
+      successLogs.push({
+        ...getByAttr(mainActionList, 'type', action.actions.type),
+        idS: +new Date(),
+        apiResponse: action.apiResponse,
+      });
+      mainActionList = removeByAttr(
+        mainActionList,
+        'type',
+        action.actions.type,
+      );
+      return { ...state, actions: mainActionList, loading: count, successLogs };
     case SET_FAIL_ACTION:
       var count = state.loading;
       count--;
       const failLogs = state.failLogs;
-      failLogs.push({ ...action.actions, idF: +new Date() });
-      return { ...state, loading: count, failLogs };
+      failLogs.push({
+        ...getByAttr(mainActionList, 'type', action.actions.type),
+        idF: +new Date(),
+        apiResponse: action.apiResponse,
+      });
+      var mainActionList = state.actions;
+      mainActionList = removeByAttr(
+        mainActionList,
+        'type',
+        action.actions.type,
+      );
+      return { ...state, actions: mainActionList, loading: count, failLogs };
     default:
       return state;
   }
