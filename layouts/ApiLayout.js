@@ -22,22 +22,21 @@ class ApiLayout extends React.Component {
 
   successTable = () => {
     const data = this.props.apiLog.successLogs;
-    if(data[0] != undefined) {
+    if (data[0] != undefined) {
       const col = Object.keys(data[0]);
       return <SimpleDTable cols={col} data={data}></SimpleDTable>;
-    } 
+    }
     return 'No Actions';
   };
 
   failedTable = () => {
     const data = this.props.apiLog.failLogs;
-    if(data[0] != undefined) {
+    if (data[0] != undefined) {
       const col = Object.keys(data[0]);
       return <SimpleDTable cols={col} data={data}></SimpleDTable>;
-    } 
+    }
     return 'No Actions';
   };
-
 
   render() {
     return (

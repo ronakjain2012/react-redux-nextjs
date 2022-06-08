@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 import { errorResponse } from '../../../../services/responseHandler';
-import { setAction, setSuccessAction } from '../../../reducers/api/api';
+import { setAction, setSuccessAction, setFailureAction } from '../../../reducers/api/api';
 import { setIdentityUsers, setUser } from '../../../reducers/user/user';
 import { requestGetIdentityUsers, requestGetUser } from '../requests/user';
 
@@ -12,8 +12,7 @@ export function* handleGetUser(action) {
     yield put(setUser(data));
     yield put(setSuccessAction({ action, data }));
   } catch (error) {
-    yield put(setFailureAction({ action, data: error }));
-    console.log(errorResponse(error));
+    yield put(setFailureAction({ action, data: errorResponse(error) }));
   }
 }
 
@@ -25,7 +24,6 @@ export function* handleGetIdentityUsers(action) {
     yield put(setIdentityUsers(data));
     yield put(setSuccessAction({ action, data }));
   } catch (error) {
-    yield put(setFailureAction({ action, data: error }));
-    console.log(errorResponse(error));
+    yield put(setFailureAction({ action, data: errorResponse(error) }));
   }
 }

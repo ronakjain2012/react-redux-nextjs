@@ -69,12 +69,12 @@ export default (state = initialState, action) => {
       var count = state.loading;
       count--;
       const failLogs = state.failLogs;
+      var mainActionList = state.actions;
       failLogs.push({
         ...getByAttr(mainActionList, 'type', action.actions.type),
         idF: +new Date(),
         apiResponse: action.apiResponse,
       });
-      var mainActionList = state.actions;
       mainActionList = removeByAttr(
         mainActionList,
         'type',

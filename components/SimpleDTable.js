@@ -41,9 +41,9 @@ export default function SimpleDTable(props) {
                       {JSON.stringify(row[col])}
                     </p>
                   ) : (
-                    <span onClick={() => copyToClipboard(row[col])}>
+                    <p onClick={() => copyToClipboard(row[col])}>
                       {row[col]}
-                    </span>
+                    </p>
                   )}
                 </TableCell>
               ))}

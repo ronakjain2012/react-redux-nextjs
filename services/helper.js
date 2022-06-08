@@ -1,4 +1,7 @@
 export const removeByAttr = function (arr, attr, value) {
+  if (arr == undefined || arr[0] == undefined) {
+    return false;
+  }
   var i = arr.length;
   while (i--) {
     if (
@@ -14,6 +17,9 @@ export const removeByAttr = function (arr, attr, value) {
 };
 
 export const getByAttr = function (arr, attr, value) {
+  if (arr == undefined || arr[0] == undefined) {
+    return null;
+  }
   var i = arr.length;
   while (i--) {
     if (
