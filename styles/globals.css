@@ -46,14 +46,18 @@
   --font: 'Cabin Condensed', sans-serif;
   --font-1: 'Fira Sans Extra Condensed', sans-serif;
   --font-2: 'Caveat', cursive;
+  --radius: 1rem;
+  --radius-1: 0.5rem;
+  --radius-2: 0.2rem;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: var(--font-2);
-  background-color: var(--background-color);
+  font-family: var(--font);
+  background-color: var(--background-7);
+  color: var(--subtitle); 
 }
 
 a {
@@ -65,17 +69,8 @@ a {
   box-sizing: border-box;
 }
 
-.input-main {
-  background-color: red;
-}
-
-.noPaddingTopBottom {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
 .debug {
-  border: 1 solid red;
+  border: 1px solid red;
 }
 
 table {
@@ -94,27 +89,4 @@ table tr:last-child th:last-child {
 
 th {
   line-height: normal !important;
-}
-
-pre {
-  margin: 0px;
-}
-
-.container {
-  margin-top: 5px;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.padding10 {
-  padding: 10px;
-}
-
-.MuiLoadingButton-loadingIndicator {
-  color: inherit !important;
 }

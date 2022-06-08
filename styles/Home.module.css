@@ -1,19 +1,7 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.sideMenu {
+  padding: 1.3rem;
 }
-
 .logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-
-.container {
-  margin-top: 5px;
-}
-
-.tables {
-  padding: 10px;
+  text-align: center;
+  margin-top: 1.5rem;
 }
