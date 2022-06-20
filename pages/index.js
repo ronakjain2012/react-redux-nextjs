@@ -16,6 +16,7 @@ import { getIdentityUsers } from '../redux/selectors';
 import ApiLayout from '../layouts/ApiLayout';
 import SideMenu from '../layouts/SideMenu';
 import Logo from '../components/Logo';
+import MainDashboard from '../layouts/MainDashboard';
 
 function Home({ items }) {
   const user = useSelector(state => state.user.user);
@@ -32,17 +33,21 @@ function Home({ items }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
-        <Grid container>
+        <Grid container style={{height:"100vh"}}>
           <Grid item md={2}>
-            <Container className={styles.logo}>
-              <Logo />
-            </Container>
-            <Container className={styles.sideMenu}>
-              <SideMenu />
-            </Container>
+            <div className={styles.sideMenuMain}>
+              <div className={styles.logo}>
+                <Logo />
+              </div>
+              <Container className={styles.sideMenu}>
+                <SideMenu />
+              </Container>
+            </div>
           </Grid>
-          <Grid item md={10}>
-            aasasasa
+          <Grid item md={10} className={styles.wrapper}>
+            <div className={styles.subWrapper}>
+              <MainDashboard></MainDashboard>
+            </div>
           </Grid>
         </Grid>
         {/* <Container maxWidth='100%' className={styles.container}>

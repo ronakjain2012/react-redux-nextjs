@@ -1,7 +1,22 @@
 .sideMenu {
+  flex: 1;
   padding: 1.3rem;
 }
+
 .logo {
   text-align: center;
   margin-top: 1.5rem;
+}
+
+.wrapper {
+  padding: 10px;
+}
+
+.subWrapper {
+  background-color:var(--background-6);
+  border-radius: var(--radius);
+  overflow-y: auto;
+  overflow-x: none;
+  max-height: calc(100vh - 20px);
+  min-height: calc(100vh - 20px);
 }
