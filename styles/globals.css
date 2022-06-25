@@ -49,6 +49,8 @@
   --radius: 1rem;
   --radius-1: 0.5rem;
   --radius-2: 0.2rem;
+  --padding: 10px;
+  --padding-2: 20px;
 }
 
 html,

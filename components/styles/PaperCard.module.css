@@ -1,0 +1,7 @@
+.gridPaperCard {
+  padding: var(--padding);
+}
+.paperCard {
+  padding: var(--padding);
+  border-radius: var(--radius-1);
+}
