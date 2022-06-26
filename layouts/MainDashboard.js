@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import styles from './styles/MainDashboard.module.css';
 import PaperCard from '../components/PaperCard';
 import InputMain from '../components/InputMain';
-import Logo from '../components/Logo';
+import { getIdentityUser, getUser, GET_IDENTITY_USERS } from '../redux/reducers/user/user';
+import CardTable from '../components/CardTable';
+import { getIdentityUsers } from '../redux/selectors';
+
 class MainDashboard extends React.Component {
   constructor() {
     super();
@@ -15,10 +18,14 @@ class MainDashboard extends React.Component {
       <Grid container className={styles.content}>
         <Grid item md={12}>
           <InputMain />
+          {this.props.user && <h1>{this.props.user.firstName}, APIs and Store Working</h1>}
         </Grid>
         <Grid item md={12}>
           <Grid container>
-            <PaperCard size='4'>
+            <PaperCard
+              size='4'
+              backgroundColor='var(--background)'
+              fontColor='var(--sub-6)'>
               <Typography gutterBottom variant='h6' component='div'>
                 Users
               </Typography>
@@ -39,7 +46,19 @@ class MainDashboard extends React.Component {
                 </Typography>
               </Box>
             </PaperCard>
-            <PaperCard size='4'>as</PaperCard>
+          </Grid>
+        </Grid>
+        <Grid item md={12}>
+          <Grid container>
+            <PaperCard
+              size='12'
+              backgroundColor='var(--background)'
+              fontColor='var(--sub-6)'>
+              <CardTable
+                name='Users'
+                data={this.props.users}
+                for={GET_IDENTITY_USERS}></CardTable>
+            </PaperCard>
           </Grid>
         </Grid>
       </Grid>
@@ -47,4 +66,17 @@ class MainDashboard extends React.Component {
   }
 }
 
-export default connect(state => ({}))(MainDashboard);
+const mapStateToProps = (state, props) => {
+  return {
+    users: getIdentityUsers(state),
+    user: state.user.user
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  initDispatch: _ => {
+    dispatch(getUser());
+    dispatch(getIdentityUser());
+  },
+});
+export default connect(mapStateToProps,mapDispatchToProps)(MainDashboard);

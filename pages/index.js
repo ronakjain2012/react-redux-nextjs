@@ -19,12 +19,12 @@ import Logo from '../components/Logo';
 import MainDashboard from '../layouts/MainDashboard';
 
 function Home({ items }) {
-  const user = useSelector(state => state.user.user);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getUser());
-    dispatch(getIdentityUser());
-  }, [dispatch]);
+  // const user = useSelector(state => state.user.user);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getUser());
+  //   dispatch(getIdentityUser());
+  // }, [dispatch]);
   return (
     <div className={styles.container}>
       <Head>
@@ -33,7 +33,7 @@ function Home({ items }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
-        <Grid container style={{height:"100vh"}}>
+        <Grid container style={{ height: '100vh' }}>
           <Grid item md={2}>
             <div className={styles.sideMenuMain}>
               <div className={styles.logo}>
@@ -72,9 +72,7 @@ function Home({ items }) {
 }
 
 const mapStateToProps = (state, props) => {
-  return {
-    items: getIdentityUsers(state),
-  };
+  return {};
 };
 
 export default connect(mapStateToProps)(Home);
