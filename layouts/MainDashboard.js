@@ -1,9 +1,10 @@
-import { Divider, Grid, IconButton, InputBase, Paper } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
 import { connect } from 'react-redux';
 import styles from './styles/MainDashboard.module.css';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PaperCard from '../components/PaperCard';
+import InputMain from '../components/InputMain';
+import Logo from '../components/Logo';
 class MainDashboard extends React.Component {
   constructor() {
     super();
@@ -13,43 +14,32 @@ class MainDashboard extends React.Component {
     return (
       <Grid container className={styles.content}>
         <Grid item md={12}>
-          <Paper
-            elevation={0}
-            component='form'
-            sx={{
-              p: '2px 4px',
-              display: 'flex',
-              alignItems: 'center',
-              borderRadius: 'var(--radius-1)',
-              marginBottom: '10px',
-            }}>
-            <InputBase
-              sx={{ ml: 1, flex: 1 }}
-              fullWidth={true}
-              placeholder='Search'
-              inputProps={{ 'aria-label': 'search' }}
-            />
-            <IconButton type='button' aria-label='search'>
-              <SearchOutlinedIcon />
-            </IconButton>
-          </Paper>
+          <InputMain />
         </Grid>
         <Grid item md={12}>
           <Grid container>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
-            <PaperCard size='4'>ddasdasadsdas 2122121</PaperCard>
+            <PaperCard size='4'>
+              <Typography gutterBottom variant='h6' component='div'>
+                Users
+              </Typography>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography variant='body1' component='div'>
+                  Active
+                </Typography>
+                <Typography gutterBottom variant='body1' component='div'>
+                  +75234
+                </Typography>
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography variant='body1' component='div'>
+                  Dead
+                </Typography>
+                <Typography gutterBottom variant='body1' component='div'>
+                  +435
+                </Typography>
+              </Box>
+            </PaperCard>
+            <PaperCard size='4'>as</PaperCard>
           </Grid>
         </Grid>
       </Grid>
