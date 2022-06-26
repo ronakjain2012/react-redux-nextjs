@@ -1,6 +1,6 @@
-import { CardContent, CardHeader, Paper } from '@mui/material';
+import { CardContent, CardHeader, Paper, Typography } from '@mui/material';
 import DenseTable from './DenseTable';
-import styles from '../styles/CardTable.module.css';
+import styles from './styles/CardTable.module.css';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { getLoadingByAction } from '../redux/selectors';
 import { connect } from 'react-redux';
@@ -19,16 +19,15 @@ function CardTable(props) {
   };
 
   return (
-    <Paper className={styles.card} square={false}>
+    <Paper sx={{backgroundColor: 'transparent'}} elevation={0}>
       <CardHeader
         title={props.name}
         className={styles.tableHeading}
         action={
           <LoadingButton
             loading={props.loading}
-            style={{ color: 'var(--primary-color)' }}>
-            {' '}
-            <CheckIcon></CheckIcon>{' '}
+            style={{ color: 'var(--primary-color)'}}>
+            <CheckIcon></CheckIcon>
           </LoadingButton>
         }
       />

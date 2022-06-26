@@ -7,12 +7,13 @@ const PaperCard = props => {
   const elevation = props.elevation || 0;
   const fontColor = props.fontColor || 'var(--sub-6)';
   const backgroundColor = props.backgroundColor || 'var(--background)';
+  const stylesParent = props.styles || {};
   return (
     <Grid item xs={size} className={styles.gridPaperCard}>
       <Paper
         className={styles.paperCard}
         elevation={elevation}
-        sx={{ backgroundColor: backgroundColor, color: fontColor }}>
+        sx={{ backgroundColor: backgroundColor, color: fontColor, ...stylesParent}}>
         {props.children}
       </Paper>
     </Grid>

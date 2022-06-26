@@ -1,0 +1,25 @@
+.THeader th {
+  color: var(--body-5);
+  background-color: transparent;
+  text-align: right;
+  font-weight: 600;
+  font-size: smaller;
+  border: none;
+  position: sticky;
+  top: 0;
+}
+
+.THeader th:first-child {
+  text-align: left;
+}
+
+.TBody td {
+  text-overflow: ellipsis;
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: inherit;
+  letter-spacing: inherit;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}

@@ -13,6 +13,10 @@ class MainDashboard extends React.Component {
     super();
   }
 
+  componentDidMount() {
+    this.props.initDispatch();
+  }
+
   render() {
     return (
       <Grid container className={styles.content}>
@@ -52,8 +56,10 @@ class MainDashboard extends React.Component {
           <Grid container>
             <PaperCard
               size='12'
-              backgroundColor='var(--background)'
-              fontColor='var(--sub-6)'>
+              elevation={0}
+              backgroundColor='var(--background-7)'
+              fontColor='var(--sub-6)'
+              styles={{padding:'0px !important'}}>
               <CardTable
                 name='Users'
                 data={this.props.users}

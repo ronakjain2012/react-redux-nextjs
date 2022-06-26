@@ -5,7 +5,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import styles from '../styles/DenseTable.module.css';
+import styles from './styles/DenseTable.module.css';
 
 let copyToClipboard = value => {
   navigator.clipboard.writeText(value).then(_ => {
@@ -25,7 +25,7 @@ export default function DenseTable(props) {
         <TableHead className={styles.THeader}>
           <TableRow>{THData()}</TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody className={styles.TBody}>
           {data.map((row, i) => (
             <TableRow
               key={i}
