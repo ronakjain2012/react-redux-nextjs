@@ -5,15 +5,15 @@ import { Container } from '@mui/system';
 import { connect } from 'react-redux';
 import Head from 'next/head';
 import CardTable from '../components/CardTable';
-import InputMain from '../components/InputMain';
+// import InputMain from '../components/InputMain';
 import styles from '../styles/Home.module.css';
-import {
-  getIdentityUser,
-  getUser,
-  GET_IDENTITY_USERS,
-} from '../redux/reducers/user/user';
-import { getIdentityUsers } from '../redux/selectors';
-import ApiLayout from '../layouts/ApiLayout';
+// import {
+//   getIdentityUser,
+//   getUser,
+//   GET_IDENTITY_USERS,
+// } from '../redux/reducers/user/user';
+// import { getIdentityUsers } from '../redux/selectors';
+// import ApiLayout from '../layouts/ApiLayout';
 import SideMenu from '../layouts/SideMenu';
 import Logo from '../components/Logo';
 import MainDashboard from '../layouts/MainDashboard';

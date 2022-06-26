@@ -12,6 +12,7 @@ import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 import EmojiFoodBeverageOutlinedIcon from '@mui/icons-material/EmojiFoodBeverageOutlined';
 import FactoryOutlinedIcon from '@mui/icons-material/FactoryOutlined';
 import styles from './styles/SideMenu.module.css';
+import Link from 'next/link';
 
 class SideMenu extends React.Component {
   constructor() {
@@ -53,15 +54,17 @@ class SideMenu extends React.Component {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton
-              component='a'
-              href='#simple-list'
-              className={styles.listButton}>
-              <ListItemIcon className={styles.listIcon}>
-                <CategoryOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary='APIs' className={styles.listButton} />
-            </ListItemButton>
+            <Link href='/apilogs'>
+              <ListItemButton
+                component='a'
+                href='/apilogs'
+                className={styles.listButton}>
+                <ListItemIcon className={styles.listIcon}>
+                  <CategoryOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary='APIs' className={styles.listButton} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         </List>
       </nav>
