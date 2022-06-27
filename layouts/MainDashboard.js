@@ -1,12 +1,18 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import React from 'react';
 import { connect } from 'react-redux';
 import styles from './styles/MainDashboard.module.css';
 import PaperCard from '../components/PaperCard';
 import InputMain from '../components/InputMain';
-import { getIdentityUser, getUser, GET_IDENTITY_USERS } from '../redux/reducers/user/user';
+import {
+  getIdentityUser,
+  getUser,
+  GET_IDENTITY_USERS,
+  GET_USER,
+} from '../redux/reducers/user/user';
 import CardTable from '../components/CardTable';
 import { getIdentityUsers } from '../redux/selectors';
+import { callAction } from '../redux/reducers/actionTrigger';
 
 class MainDashboard extends React.Component {
   constructor() {
@@ -22,7 +28,10 @@ class MainDashboard extends React.Component {
       <Grid container className={styles.content}>
         <Grid item md={12}>
           <InputMain />
-          {this.props.user && <h1>{this.props.user.firstName}, APIs and Store Working</h1>}
+          {this.props.user && (
+            <h1>{this.props.user.firstName}, APIs and Store Working</h1>
+          )}
+          <Button onClick={()=>this.props.callableAction(GET_USER)}>Hey</Button>
         </Grid>
         <Grid item md={12}>
           <Grid container>
@@ -59,7 +68,7 @@ class MainDashboard extends React.Component {
               elevation={0}
               backgroundColor='var(--background-7)'
               fontColor='var(--sub-6)'
-              styles={{padding:'0px !important'}}>
+              styles={{ padding: '0px !important' }}>
               <CardTable
                 name='Users'
                 data={this.props.users}
@@ -75,7 +84,7 @@ class MainDashboard extends React.Component {
 const mapStateToProps = (state, props) => {
   return {
     users: getIdentityUsers(state),
-    user: state.user.user
+    user: state.user.user,
   };
 };
 
@@ -84,5 +93,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(getUser());
     dispatch(getIdentityUser());
   },
+  callableAction: (key, data = undefined) => {
+    callAction(dispatch, key, data);
+  },
 });
-export default connect(mapStateToProps,mapDispatchToProps)(MainDashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(MainDashboard);
